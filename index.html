@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YEYOULU 夜游录 - 官方永久地址发布页 | 防走失回家路</title>
+    <meta name="description" content="YEYOULU (夜游录) 官方永久地址发布页。当主站无法访问时，请通过本页面获取最新可用的镜像域名与防走失客户端。">
+    <meta name="theme-color" content="#0f0f10">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #0f0f10;
+            background-image: radial-gradient(circle at 20% 20%, rgba(225, 29, 72, 0.12) 0%, transparent 45%),
+                              radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 45%);
+            color: #e5e7eb;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 16px;
+        }
+        .card {
+            width: 100%;
+            max-width: 520px;
+            background: #16161c;
+            border: 1px solid #27272a;
+            border-radius: 20px;
+            padding: 32px 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        .top-bar {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e11d48, #3b82f6);
+        }
+        .header { text-align: center; margin-bottom: 24px; }
+        .logo-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .logo-icon {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, #f43f5e, #be123c);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 22px; color: #fff;
+            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4);
+        }
+        .logo-text { font-size: 28px; font-weight: 900; letter-spacing: -1px; color: #fff; }
+        .logo-text span { color: #f43f5e; }
+        .subtitle { font-size: 13px; color: #9ca3af; }
+        .bookmark-tip {
+            background: rgba(225, 29, 72, 0.1);
+            border: 1px solid rgba(225, 29, 72, 0.3);
+            color: #fda4af;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+        .kbd {
+            background: #27272a;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            border: 1px solid #3f3f46;
+            margin: 0 3px;
+        }
+        .section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .retest-btn {
+            background: none; border: none;
+            color: #60a5fa; font-size: 12px; font-weight: 700;
+            cursor: pointer;
+        }
+        .retest-btn:hover { text-decoration: underline; }
+        .line-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+        .line-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1f1f27;
+            border: 1px solid #2e2e3a;
+            border-radius: 12px;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .line-item:hover {
+            border-color: #f43f5e;
+            transform: translateY(-2px);
+            background: #252530;
+        }
+        .line-info { display: flex; flex-direction: column; gap: 4px; }
+        .line-name { font-size: 15px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 8px; }
+        .badge {
+            font-size: 10px; font-weight: 800;
+            padding: 2px 6px; border-radius: 4px;
+            background: #e11d48; color: #fff;
+        }
+        .badge-blue { background: #2563eb; }
+        .line-url { font-size: 12px; color: #9ca3af; font-family: monospace; }
+        .line-right { display: flex; align-items: center; gap: 10px; }
+        .ping-tag {
+            font-size: 11px; font-family: monospace; font-weight: 700;
+            padding: 3px 8px; border-radius: 6px;
+            background: #111115; color: #9ca3af;
+            border: 1px solid #27272a;
+        }
+        .ping-fast { color: #34d399; border-color: rgba(52, 211, 153, 0.3); background: rgba(6, 78, 59, 0.3); }
+        .ping-mid { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); }
+        .go-btn {
+            background: #e11d48; color: #fff;
+            font-size: 12px; font-weight: 800;
+            padding: 7px 14px; border-radius: 8px;
+        }
+        .vpn-box {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.35), rgba(15, 15, 16, 0.9));
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+        .vpn-box:hover { border-color: #60a5fa; }
+        .vpn-title { font-size: 13px; font-weight: 800; color: #93c5fd; margin-bottom: 3px; }
+        .vpn-desc { font-size: 11px; color: #9ca3af; }
+        .vpn-btn {
+            flex-shrink: 0;
+            background: #2563eb; color: #fff;
+            font-size: 11px; font-weight: 800;
+            padding: 8px 12px; border-radius: 8px;
+        }
+        .footer-note {
+            font-size: 11px; color: #6b7280;
+            line-height: 1.6; text-align: center;
+            border-top: 1px solid #27272a;
+            padding-top: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="top-bar"></div>
+
+        <div class="header">
+            <div class="logo-box">
+                <div class="logo-icon">Y</div>
+                <div class="logo-text">YEYOU<span>LU</span></div>
+            </div>
+            <p class="subtitle">夜游录 · 独立游戏聚合平台官方永久地址发布页</p>
+        </div>
+
+        <div class="bookmark-tip">
+            ⭐ 强烈建议按 <span class="kbd">Ctrl + D</span> 或手机浏览器「添加书签」收藏本页，永不迷路！
+        </div>
+
+        <div class="section-title">
+            <span>🟢 可用访问线路（点击直接进入）</span>
+            <button type="button" class="retest-btn" onclick="runSpeedTest()">🔄 重新测速</button>
+        </div>
+
+        <div class="line-list" id="line-container">
+            <!-- 线路 1：主域名 -->
+            <a href="https://yeyoulu.com" target="_blank" class="line-item" data-url="https://yeyoulu.com">
+                <div class="line-info">
+                    <div class="line-name">官方主线路 ① <span class="badge">主站推荐</span></div>
+                    <div class="line-url">https://yeyoulu.com</div>
+                </div>
+                <div class="line-right">
+                    <span class="ping-tag">测速中...</span>
+                    <span class="go-btn">进入 &rarr;</span>
+                </div>
+            </a>
+
+            <!-- 线路 2：带 www 备用入口（以后买了新备用域名直接改这里） -->
+            <a href="https://www.yeyoulu.com" target="_blank" class="line-item" data-url="https://www.yeyoulu.com">
+                <div class="line-info">
+                    <div class="line-name">全球加速线路 ② <span class="badge badge-blue">备用分流</span></div>
+                    <div class="line-url">https://www.yeyoulu.com</div>
+                </div>
+                <div class="line-right">
+                    <span class="ping-tag">测速中...</span>
+                    <span class="go-btn">进入 &rarr;</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- 专属梯子防墙兜底（顺便在发布页赚一波 CPS 转化！） -->
+        <a href="https://hcy.3ced.top/?channel=yyl" target="_blank" rel="nofollow" class="vpn-box">
+            <div>
+                <div class="vpn-title">⚡ 国内移动/联通宽带打不开或加载慢？</div>
+                <div class="vpn-desc">开启夜游录专属高速梯子，无视运营商屏蔽，H5 游戏秒加载！</div>
+            </div>
+            <span class="vpn-btn">免费试用 &rarr;</span>
+        </a>
+
+        <div class="footer-note">
+            💡 提示：进入主站后，点击左下角<strong>「安装夜游录桌面客户端」</strong>即可将应用固定至手机/电脑桌面，享受防走失秒开体验。<br>
+            &copy; 2026 Yeyoulu.com All Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        function testUrl(item) {
+            const url = item.getAttribute('data-url');
+            const badge = item.querySelector('.ping-tag');
+            badge.className = 'ping-tag';
+            badge.textContent = '检测中...';
+            const start = performance.now();
+
+            fetch(url + '/favicon.svg?t=' + Date.now(), { mode: 'no-cors', cache: 'no-store' })
+                .then(() => {
+                    const ms = Math.max(18, Math.round(performance.now() - start));
+                    badge.textContent = ms + ' ms';
+                    badge.classList.add(ms < 300 ? 'ping-fast' : 'ping-mid');
+                })
+                .catch(() => {
+                    badge.textContent = '需挂梯子';
+                });
+        }
+
+        function runSpeedTest() {
+            document.querySelectorAll('.line-item').forEach(testUrl);
+        }
+
+        window.addEventListener('DOMContentLoaded', runSpeedTest);
+    </script>
+</body>
+</html>
